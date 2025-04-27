@@ -12,7 +12,7 @@ github_repo: "" # you code repository
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: 
-sidebar-avatar: url"{{ site.baseurl }}/img/people/YipingChen.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: "{{ url }}{{ site.baseurl }}/img/people/YipingChen.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
 sidebar-about-description:  |
     <span style="color: #000000;">School of Geospatial Engineering and Science, Sun Yat-sen University, Zhuhai 519082, China</span><br>
     <br>
