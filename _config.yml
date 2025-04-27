@@ -6,7 +6,7 @@ email:
 description: "3D Spatio-Temporal AI Laboratory"
 keyword: ""
 url: "https://ting-devin-han.github.io/"          # your host, for absolute URL
-baseurl: "/3DAILab"      # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "" # you code repository
 
 # Sidebar settings
