@@ -1,18 +1,18 @@
 # Site settings
 title: 3DAILab
 SEOTitle: 3DAILab
-header-img: img/IGARSS_Group.jpg    # img/post-bg-desk.jpg
+header-img: "/img/IGARSS_Group.jpg"    # img/post-bg-desk.jpg
 email: 
 description: "3D Spatio-Temporal AI Laboratory"
 keyword: ""
-url: "https://ting-devin-han.github.io/"          # your host, for absolute URL
+url: "https://ting-devin-han.github.io"          # your host, for absolute URL
 baseurl: "/3DAILab"      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: 
-sidebar-avatar: /img/people/Yiping Chen.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: "/img/people/Yiping Chen.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
 sidebar-about-description:  |
     <span style="color: #000000;">School of Geospatial Engineering and Science, Sun Yat-sen University, Zhuhai 519082, China</span><br>
     <br>
