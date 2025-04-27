@@ -602,7 +602,7 @@ am5.ready(function() {
       style="padding: 12px; font-size: 16px; background-color: #1976d2; color: white; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s;">
       Send Message
     </button>
-
+     <p id="form-error" style="color: red; font-size: 14px; margin-top: 10px; display: none;"></p>
   </form>
 
   <!-- 提交后提示 -->
@@ -621,6 +621,49 @@ am5.ready(function() {
         alert('✅ Message sent successfully!');
       }, function(error) {
         alert('❌ Failed to send the message. Please try again.');
+      });
+  });
+</script>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // 阻止默认提交
+
+    // 获取输入内容
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const errorText = document.getElementById('form-error');
+
+    // 邮箱正则
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // 验证逻辑
+    if (name === '' || email === '' || message === '') {
+      errorText.textContent = 'Please fill in all fields.';
+      errorText.style.display = 'block';
+      return;
+    }
+
+    if (!emailPattern.test(email)) {
+      errorText.textContent = 'Please enter a valid email address.';
+      errorText.style.display = 'block';
+      return;
+    }
+
+    // 验证通过，隐藏错误提示
+    errorText.style.display = 'none';
+
+    // 在这里调用你原来的 emailjs 或其他发送逻辑，比如
+    emailjs.sendForm('你的_service_id', '你的_template_id', this, '你的_public_key')
+      .then(function(response) {
+        console.log('✅ SUCCESS!', response.status, response.text);
+        document.getElementById('thank-you').style.display = 'block';
+        document.getElementById('contact-form').reset();
+      }, function(error) {
+        console.log('❌ FAILED...', error);
+        errorText.textContent = 'Failed to send. Please try again later.';
+        errorText.style.display = 'block';
       });
   });
 </script>
