@@ -576,23 +576,35 @@ am5.ready(function() {
       </p>
 </div>
 
-<div style="display: flex; flex-direction: column; align-items: center; margin-top: 30px;">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc37IKOk-JJe7Ibf8oouznPvdUlHk6RW_FVmF1v8qFVJW0QQg/viewform?embedded=true" width="640" height="686" frameborder="0" marginheight="0" marginwidth="0">正在加载…</iframe>
-      <!--<input type="text" name="name" placeholder="Your Name" required 
-        class="form-input"/>https://forms.gle/ud9LMf1BaP9528L58
-        
-  
-      <input type="email" name="email" placeholder="Your Email" required 
-        class="form-input"/>
-  
-      <textarea name="message" placeholder="Your Message" required 
-        class="form-textarea"></textarea>
-  
-      <button type="submit" class="form-button">
-        Send Message
-      </button>
-    </form> -->
-  </div>
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+
+<script type="text/javascript">
+  (function(){
+    emailjs.init('Dj6gTC7Xq1QHguLQl'); 
+  })();
+</script>
+
+<!-- 表单 -->
+<form id="contact-form">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
+<!-- 发送表单逻辑 -->
+<script type="text/javascript">
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_96v6phh', 'template_817oi1o', this)
+      .then(function() {
+        alert('✅ Message sent successfully!');
+      }, function(error) {
+        alert('❌ Failed to send the message. Please try again.');
+      });
+  });
+</script>
   
   <!-- 弹出感谢提示 -->
   <div id="thank-you" style="display: none; text-align: center; margin-top: 20px; font-size: 18px; color: #1976d2;">
